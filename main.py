@@ -11,7 +11,9 @@ def are_matching(left, right):
 
 def find_mismatch(text):
     opening_brackets_stack = []
+    
     for position, next in enumerate(text):
+        
         if next in "([{":
             # Process opening bracket, write your code here
             opening_brackets_stack.append(Bracket(next, position + 1));
@@ -21,10 +23,11 @@ def find_mismatch(text):
             if opening_brackets_stack == [] or not are_matching(opening_brackets_stack[-1].char, next):
                 return position + 1
             opening_brackets_stack.pop();
-        if not opening_brackets_stack:
-            return 0;
-        else:
-            opening_brackets_stack[-1].position
+            
+    if not opening_brackets_stack:
+        return 0;
+    else:
+        opening_brackets_stack[-1].position
 
 
 def main():
