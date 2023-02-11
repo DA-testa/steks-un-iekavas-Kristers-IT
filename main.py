@@ -24,10 +24,10 @@ def find_mismatch(text):
                 return position + 1
             opening_brackets_stack.pop();
             
-    if not opening_brackets_stack:
-        return 0;
+    if opening_brackets_stack:
+        return opening_brackets_stack[-1].position
     else:
-        opening_brackets_stack[-1].position
+        return 0
 
 
 def main():
