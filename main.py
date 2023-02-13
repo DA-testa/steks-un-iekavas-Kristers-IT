@@ -9,8 +9,12 @@ Bracket = namedtuple("Bracket", ["char", "position"])
 def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
 
+<<<<<<< HEAD
 
 def find_mismatch(text: str):
+=======
+def find_mismatch(text):
+>>>>>>> 8b1388c2e5dda21aeb545725e952e827ee17504f
     opening_brackets_stack = []
     text = text.split("\\n")[1]
 
