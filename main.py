@@ -12,7 +12,7 @@ def are_matching(left, right):
 
 def find_mismatch(text: str):
     opening_brackets_stack = []
-    text = text.split("\\n")[1]
+    text = text[5:]
 
     for position, symbol in enumerate(text):
         
