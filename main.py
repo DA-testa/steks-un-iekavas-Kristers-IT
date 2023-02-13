@@ -10,20 +10,20 @@ def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
 
 
-def find_mismatch(text):
+def find_mismatch(text: str):
     opening_brackets_stack = []
-    
-    for position, next in enumerate(text):
-        
-        if next in "([{":
-            # Process opening bracket, write your code here
-            opening_brackets_stack.append(Bracket(next, position + 1));
+    text = text.split("\\n")[1]
 
-        if next in ")]}":
+    for position, symbol in enumerate(text):
+        
+        if symbol in "([{":
+            # Process opening bracket, write your code here
+            opening_brackets_stack.append(Bracket(symbol, position + 1))
+        elif symbol in ")]}":
             # Process closing bracket, write your code here
-            if opening_brackets_stack == [] or not are_matching(opening_brackets_stack[-1].char, next):
+            if opening_brackets_stack == [] or not are_matching(opening_brackets_stack[-1].char, symbol):
                 return position + 1
-            opening_brackets_stack.pop();
+            opening_brackets_stack.pop()
             
     if opening_brackets_stack:
         return opening_brackets_stack[-1].position
@@ -38,7 +38,7 @@ def main():
     if not mismatch:
         print("Success")
     else:
-        print(mismatch-5)
+        print(mismatch)
 
 if __name__ == "__main__":
     main()
