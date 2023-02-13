@@ -1,5 +1,6 @@
 # python3
-
+#LABD
+#datustrukturas
 from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
@@ -37,7 +38,7 @@ def main():
     if not mismatch:
         print("Success")
     else:
-        print(mismatch)
+        print(mismatch-5)
 
 if __name__ == "__main__":
     main()
