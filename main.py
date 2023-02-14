@@ -12,18 +12,19 @@ def are_matching(left, right):
 
 def find_mismatch(text: str):
     opening_brackets_stack = []
-    text = text[5:]
+    
 
     for position, symbol in enumerate(text):
         
         if symbol in "([{":
             # Process opening bracket, write your code here
             opening_brackets_stack.append(Bracket(symbol, position + 1))
-        elif symbol in ")]}":
+        if symbol in ")]}":
             # Process closing bracket, write your code here
             if opening_brackets_stack == [] or not are_matching(opening_brackets_stack[-1].char, symbol):
                 return position + 1
-            opening_brackets_stack.pop()
+            else:
+                opening_brackets_stack.pop()
             
     if opening_brackets_stack:
         return opening_brackets_stack[-1].position
@@ -32,7 +33,10 @@ def find_mismatch(text: str):
 
 
 def main():
+
     text = input()
+    if 'I' in text[:1]:
+        text = input()
     mismatch = find_mismatch(text)
     # Printing answer, write your code here
     if not mismatch:
