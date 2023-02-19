@@ -38,8 +38,9 @@ def main():
     if 'I' in text[:1]:
         text = input()
     if 'F' in text[:1]:
-        nosaukums = input()
-        text = open("nosaukums", "r")
+        nosaukums = input("Faila nosaukums: ")
+        with open(nosaukums, "r") as f:
+            text = f.read()
     mismatch = find_mismatch(text)
     # Printing answer, write your code here
     if not mismatch:
