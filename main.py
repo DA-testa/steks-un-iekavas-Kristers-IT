@@ -37,6 +37,9 @@ def main():
     text = input()
     if 'I' in text[:1]:
         text = input()
+    if 'F' in text[:1]:
+        nosaukums = input()
+        text = open("nosaukums", "r")
     mismatch = find_mismatch(text)
     # Printing answer, write your code here
     if not mismatch:
